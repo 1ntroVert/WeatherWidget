@@ -10,7 +10,7 @@ namespace WeatherWidget
     /// </summary>
     public partial class MainWindow : Window
     {
-        WeatherApiClient weatherApiClient = new WeatherApiClient();
+        IWeatherApiClient weatherApiClient;
         DatabaseClient databaseClient = null;
 
         List<WeatherData> weatherForecast = new List<WeatherData>();
@@ -18,6 +18,8 @@ namespace WeatherWidget
         public MainWindow()
         {
             InitializeComponent();
+            clientModeCombobox.Items.Add("xml");
+            clientModeCombobox.Items.Add("json");
             cityCombobox.Items.Add("Novosibirsk");
             cityCombobox.Items.Add("Moscow");
             cityCombobox.Items.Add("Sochi");
@@ -54,6 +56,10 @@ namespace WeatherWidget
         private void networkButton_Click(object sender, RoutedEventArgs e)
         {
             string city = cityCombobox.SelectedItem as string;
+            int index = clientModeCombobox.SelectedIndex;
+            if (index == 1) weatherApiClient = new WeatherApiClient<JsonMode>();
+            else weatherApiClient = new WeatherApiClient<XmlMode>();
+
             weatherForecast = weatherApiClient.LoadWeatherForecast(city);
             if (weatherForecast != null) weatherDataGrid.ItemsSource = convertToWeatherViewData(weatherForecast);
         }

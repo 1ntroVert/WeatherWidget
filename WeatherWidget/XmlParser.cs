@@ -5,13 +5,13 @@ using System.Xml;
 
 namespace WeatherWidget
 {
-    class XmlParser
+    class XmlParser : IDataParser
     {
-        public List<WeatherData> ParseWeatherForecast(string xml)
+        public List<WeatherData> ParseWeatherForecast(string response)
         {
             XmlDocument doc = new XmlDocument();
             // загрузка xml из строки
-            doc.LoadXml(xml);
+            doc.LoadXml(response);
             // получение корневого элемента
             XmlElement root = doc.DocumentElement;
 

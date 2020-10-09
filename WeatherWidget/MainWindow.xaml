@@ -8,9 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="weatherDataGrid" Width="647" Height="409" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="135,0,10,0"/>
-        <ComboBox x:Name="cityCombobox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="networkButton" Content="Получить&#xD;&#xA;актуальную&#xD;&#xA;погоду" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="120" Click="networkButton_Click" Height="69"/>
-        <Button x:Name="loadButton" Content="Загрузить из БД" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" Width="120" Height="69" Click="loadButton_Click"/>
-        <Button x:Name="saveButton" Content="Сохранить в БД" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="120" Click="saveButton_Click" Height="69"/>
+        <ComboBox x:Name="cityCombobox" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="networkButton" Content="Получить&#xD;&#xA;актуальную&#xD;&#xA;погоду" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="120" Click="networkButton_Click" Height="69"/>
+        <Button x:Name="loadButton" Content="Загрузить из БД" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Width="120" Height="69" Click="loadButton_Click"/>
+        <Button x:Name="saveButton" Content="Сохранить в БД" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top" Width="120" Click="saveButton_Click" Height="69"/>
+        <ComboBox x:Name="clientModeCombobox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
