@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace WeatherWidget
 {
@@ -15,12 +16,7 @@ namespace WeatherWidget
 
         private List<WeatherData> toWeatherDataList(Root root)
         {
-            var weatherDataList = new List<WeatherData>();
-            foreach(List list in root.list)
-            {
-                weatherDataList.Add(toWeatherData(list));
-            }
-            return weatherDataList;
+            return root.list.Select(list => toWeatherData(list)).ToList();
         }
 
         private WeatherData toWeatherData(List list)

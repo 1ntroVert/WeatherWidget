@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace WeatherWidget
@@ -28,12 +29,7 @@ namespace WeatherWidget
         #region Converters
         private List<WeatherViewData> convertToWeatherViewData(List<WeatherData> weatherForecast)
         {
-            List<WeatherViewData> weatherForecastViewData = new List<WeatherViewData>();
-            foreach (WeatherData weatherData in weatherForecast)
-            {
-                weatherForecastViewData.Add(convertToWeatherViewData(weatherData));
-            }
-            return weatherForecastViewData;
+            return weatherForecast.Select(weatherData => convertToWeatherViewData(weatherData)).ToList();
         }
 
         private WeatherViewData convertToWeatherViewData(WeatherData weatherData)
